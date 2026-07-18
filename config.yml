@@ -1,0 +1,33 @@
+version: 1.0.0
+logging:
+  file_path: "pipeline.log"
+  level: "INFO"
+
+environments:
+  dev:
+    log_level: "INFO"
+    api_url: "https://jsonplaceholder.typicode.com/users"
+    api_filename: "20260628_173411_users_raw.json"
+    staging_table: "staging.sales_clean_python"
+    fact_table: "analytics.fact_sales"
+    snowflake:
+      account: "pxtzjyc-gt19103"         # Change to your real Snowflake Account ID
+      user: "KIDIMAMEDY"                 # Change to your real Snowflake User
+      warehouse: "compute_wh"             # Change to your real Snowflake Warehouse
+      database: "Customer_analytics"       # Change to your real Snowflake Database
+      schema: "staging"                     # Change to your real Snowflake Schema
+      role: "accountadmin" 
+
+  prod:
+    log_level: "WARNING"
+    api_url: "https://jsonplaceholder.typicode.com/users"
+    api_filename: "production_users_raw.json"
+    staging_table: "production_staging.sales_clean_python"
+    fact_table: "production_analytics.fact_sales"
+    snowflake:
+      account: "pxtzjyc-gt19103"
+      user: "KIDIMAMEDY"
+      warehouse: "compute_wh"
+      database: "Customer_analytics"
+      schema: "staging"
+      role: "accountadmin" 

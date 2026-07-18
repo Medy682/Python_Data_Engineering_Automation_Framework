@@ -1,0 +1,1 @@
+CALL analytics.sp_log_pipeline_run();

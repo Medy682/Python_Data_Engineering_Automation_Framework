@@ -1,0 +1,18 @@
+# Secure Environmental Data and Personal Scripts
+environment_variable.env
+run_pipeline.bat
+*.p8
+.env.example
+
+# Python virtual environments and compilation dumps
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Local exploratory assets and notebook checkpoints
+.ipynb_checkpoints/
+archive/
+notebooks/
+tests/
+

@@ -1,0 +1,61 @@
+
+name: Data Pipeline Verification Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-and-test:
+    runs-on: ubuntu-latest
+    
+    # 1. Pull your encrypted credentials straight from your GitHub Secrets
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+
+    steps:
+    - name: Check out pipeline repository files
+      uses: actions/checkout@v4
+
+    - name: Initialise Python Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install System and Python Libraries
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Securely Decode and Reconstruct Private Key
+      env:
+        PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+      run: |
+        # Safely create the temporary key file inside the runner's workspace
+        echo "$PRIVATE_KEY" > rsa_key.p8
+        chmod 600 rsa_key.p8
+        
+        # Set the environment variable path so your python code knows where to look
+        echo "SNOWFLAKE_PRIVATE_KEY_PATH=$(pwd)/rsa_key.p8" >> $GITHUB_ENV
+
+    - name: Run Core Test Suite with Real Environment Context
+      run: |
+        # Runs your validation exercises using your real Snowflake configurations
+        pytest -v test_orchestrator.py
+
+    - name: Verify Master Orchestrator Script Compilation
+      run: |
+        # Verifies that your main control code launches and runs seamlessly
+        python master_orchestrator.py --env dev
+
+    - name: Secure Cleanup of Key Assets
+      if: always() # This guarantees the key is deleted even if the tests fail
+      run: |
+        rm -f rsa_key.p8

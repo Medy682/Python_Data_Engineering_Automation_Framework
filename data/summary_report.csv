@@ -1,0 +1,5 @@
+table_name,rows,columns
+country_df,10,2
+customer_df,10,9
+product_df,12,9
+sales_df,23,8

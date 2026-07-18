@@ -1,0 +1,11 @@
+ID,NAME,GENDER,DATEOFBIRTH,EMAIL,COUNTRY,CITY,CREATED_AT,UPDATED_AT
+c1,Lara Fitzgerald,female,2002-08-05,lara.fitzgerald@email.com,Unknown,New York,2021-05-18 09:14:00,2021-05-18 09:14:00
+c2,Madison Carter,female,1995-05-20,madison.carter@email.com,US,Miami,2021-06-02 14:36:00,2021-06-02 14:36:00
+c3,Cooper Harris,male,1990-06-08,cooper.harris@email.com,Unknown,Las Vegas,2017-07-21 08:05:00,2021-08-04 10:22:00
+c4,Mario Schulz,male,2000-12-19,mario.schulz@email.com,Unknown,Stuttgart,2021-09-10 16:48:00,2021-10-01 11:19:00
+c5,Sophie Becker,female,2003-05-23,sophie.becker@email.com,DE,Munich,2022-01-06 10:27:00,2022-01-06 10:27:00
+c6,Diego Alvarez,male,1978-03-02,diego.alvarez@email.com,ES,Madrid,2022-02-19 07:54:00,2022-02-19 07:54:00
+c7,Katharina Berger,female,1997-07-26,katharina.berger@email.com,AT,Vienna,2022-03-28 15:09:00,2022-04-14 09:44:00
+c8,Hugo Moreau,male,2002-11-20,hugo.moreau@email.com,FR,Paris,2022-06-15 12:41:00,2022-06-15 12:41:00
+c9,Thiago Almeida,male,1993-12-01,thiago.almeida@email.com,BR,Rio de Janeiro,2022-08-03 11:33:00,2022-08-27 14:27:00
+c10,Emily Johnson,female,1987-12-01,emily.johnson@email.com,AU,Melbourne,2022-11-01 13:58:00,2022-11-01 13:58:00
