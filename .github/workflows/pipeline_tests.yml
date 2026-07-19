@@ -38,12 +38,10 @@ jobs:
       env:
         PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
       run: |
-        # Safely create the temporary key file inside the runner's workspace
-        echo "$PRIVATE_KEY" > rsa_key.p8
+        echo "$PRIVATE_KEY" | base64 --decode > rsa_key.p8
         chmod 600 rsa_key.p8
-        
-        # Set the environment variable path so your python code knows where to look
         echo "SNOWFLAKE_PRIVATE_KEY_PATH=$(pwd)/rsa_key.p8" >> $GITHUB_ENV
+
 
     - name: Run Core Test Suite with Real Environment Context
       run: |
