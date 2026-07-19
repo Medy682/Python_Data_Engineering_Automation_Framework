@@ -1,5 +1,5 @@
 
-name: Data Pipeline Verification Gate
+name: Data Pipeline Verification Gate (CI/CD Unit & Integration Suite)
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 
 jobs:
   verify-and-test:
+    name: Run CI Unit Tests & CD Integration Gate
     runs-on: ubuntu-latest
     
     # 1. Pull your encrypted credentials straight from your GitHub Secrets
