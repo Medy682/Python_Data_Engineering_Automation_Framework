@@ -42,15 +42,16 @@ jobs:
         chmod 600 rsa_key.p8
         echo "SNOWFLAKE_PRIVATE_KEY_PATH=$(pwd)/rsa_key.p8" >> $GITHUB_ENV
 
-
-    - name: Run Core Test Suite with Real Environment Context
+    - name: Run Core Unit Test Suite (Isolated Logic Verification)
       run: |
-        # Runs your validation exercises using your real Snowflake configurations
+        # Verifies Python logic, null-handling, and regex parsing in local memory.
+        # Mocks intercept database calls to ensure ZERO Snowflake compute costs are incurred.
         pytest -v test_orchestrator.py
 
-    - name: Verify Master Orchestrator Script Compilation
+    - name: Run Real Data Integration Gate (Live Snowflake Verification)
       run: |
-        # Verifies that your main control code launches and runs seamlessly
+        # Connects directly to your live Snowflake instance using decrypted secrets.
+        # Validates active network routing, real schema configurations, and watermarks.
         python master_orchestrator.py --env dev
 
     - name: Secure Cleanup of Key Assets
