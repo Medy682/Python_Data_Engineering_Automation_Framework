@@ -341,11 +341,13 @@ docker run --rm --entrypoint pytest data-pipeline:v1 test_orchestrator.py -v
 ### 👉 3. Run the Data Pipeline
 Run the framework by supplying your environment variables and mounting your RSA private key into the container:
 
-```Windows (PowerShell)
+Windows (PowerShell):
+
 docker run --rm `
   --env-file environment_variable.env `
   -v "C:/path/to/your/rsa_key.p8:/app/secrets/rsa_key.p8" `
   data-pipeline:v1 --env dev
+
 ---
 
 
