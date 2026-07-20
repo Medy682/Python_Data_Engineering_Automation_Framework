@@ -315,26 +315,39 @@ The entire pipeline is verified using a local pytest unit test suite and package
 
 # 👩🏻‍💻 Execution and Testing Guide
 
+## ⚡ Prerequisites
 
-### 👉 1. Build the Immutable Image Layer
-Compile the environment asset using the terminal build command:
+Before running the framework, ensure you have:
+
+- Docker Desktop installed
+- A configured `environment_variable.env` file
+- Your Snowflake RSA private key (`rsa_key.p8`)
+
+---
+
+
+### 👉 1. Build the Docker Image
+Build the Docker image from the project source:
 ```powershell
 docker build -t data-pipeline:v1 .
 ```
 
-### 👉 2. Run the Verification Testing Suite Inside Docker
-Trigger the validation tests to execute inside the isolated container context:
+### 👉 2. Run the Test Suite
+Execute the automated test suite inside the Docker container:
 ```powershell
 docker run --rm --entrypoint pytest data-pipeline:v1 test_orchestrator.py -v
 ```
 
-### 👉 3. Launch the Secure Pipeline Automation Stream
-Execute the complete framework orchestrator by passing your environmental values file and securely mounting your external hardware RSA key file:
-```powershell
-docker run --rm --env-file environment_variable.env -v "C:/Users/Kidima/PyCharmMiscProject/Hazel/rsa_key.p8:/app/secrets/rsa_key.p8" data-pipeline:v1 --env dev
-```
+### 👉 3. Run the Data Pipeline
+Run the framework by supplying your environment variables and mounting your RSA private key into the container:
 
+```Windows (PowerShell)
+docker run --rm `
+  --env-file environment_variable.env `
+  -v "C:/path/to/your/rsa_key.p8:/app/secrets/rsa_key.p8" `
+  data-pipeline:v1 --env dev
 ---
+
 
 # 🎯 Skills Demonstrated 
 
