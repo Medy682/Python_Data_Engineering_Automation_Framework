@@ -94,6 +94,13 @@ Using Docker ensures that every team member and deployment environment runs the 
 
 ✅ We use **structured logging** with two handlers to monitor the pipeline in real time and maintain a permanent execution history. The **Console Handler (StreamHandler)** displays log messages during execution for immediate visibility, while the **File Handler (FileHandler)** saves logs to a file for debugging, auditing, and troubleshooting after the pipeline has finished running.
 
+---
+
+# 📌 Project Overview
+
+This project establishes a robust, enterprise-grade data automation framework designed to execute hybrid ELT and ETL data pipelines via a modular Python system. By decoupling configuration from code and leveraging environment-based configurations with RSA key-pair authentication, this Docker-containerised framework eliminates fragile, hardcoded scripts to securely ingest, stage, and load CSV and REST API data sources into Snowflake. Furthermore, the system ensures pipeline idempotency and operational resilience by implementing isolated secrets management, structured dual-handler logging, automated self-healing network retries, and Pandas-based workflows that clean, validate, extract, and timestamp datasets prior to secure database loading.
+
+---
 
 # 📊 Framework Architecture 
 
@@ -106,16 +113,10 @@ The architecture is split into **two decoupled data processing tracks**:
 
 - **Track 1:** A **hybrid ETL/ELT (EtLT)** pipeline, where transformations occur both before and after loading data into Snowflake.
 - **Track 2:** A **pure ETL** pipeline, where data is extracted, transformed entirely within Python, and then loaded directly into Snowflake.
----
-
-# 📌 Project Overview
-
-This project establishes a robust, enterprise-grade data automation framework designed to execute hybrid ELT and ETL data pipelines via a modular Python system. By decoupling configuration from code and leveraging environment-based configurations with RSA key-pair authentication, this Docker-containerised framework eliminates fragile, hardcoded scripts to securely ingest, stage, and load CSV and REST API data sources into Snowflake. Furthermore, the system ensures pipeline idempotency and operational resilience by implementing isolated secrets management, structured dual-handler logging, automated self-healing network retries, and Pandas-based workflows that clean, validate, extract, and timestamp datasets prior to secure database loading.
-
 
 ---
 
-# 🗂️ Data integration processes used in this framework
+# 🗂️ Detailed Framework Architecture
 
 1. ### 🏁 Track 1 (csv data) : Hybrid ETL/ELT Ingestion, Modeling, and Audit Framework
 
@@ -138,7 +139,6 @@ This project establishes a robust, enterprise-grade data automation framework de
  Uses a regex parser utility to extract time signatures from filenames (`YYYYMMDD_HHMMSS`) and checks them against Snowflake's maximum metadata watermark (`MAX(load_timestamp)`). New files are ingested over HTTP, parsed into clean structures within local memory, and loaded to the database layer only if they contain fresh data.
 
 ---
-
 
 ## 📂 Repository Structure
 
