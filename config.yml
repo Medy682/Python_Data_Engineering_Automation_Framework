@@ -11,11 +11,11 @@ environments:
     staging_table: "staging.sales_clean_python"
     fact_table: "analytics.fact_sales"
     snowflake:
-      account: "pxtzjyc-gt19103"         # Change to your real Snowflake Account ID
-      user: "KIDIMAMEDY"                 # Change to your real Snowflake User
-      warehouse: "compute_wh"             # Change to your real Snowflake Warehouse
-      database: "Customer_analytics"       # Change to your real Snowflake Database
-      schema: "staging"                     # Change to your real Snowflake Schema
+      account: "pxtzjyc-gt19103"         
+      user: "KIDIMAMEDY"                 
+      warehouse: "compute_wh"             
+      database: "Customer_analytics"       
+      schema: "staging"                     
       role: "accountadmin" 
 
   prod:
