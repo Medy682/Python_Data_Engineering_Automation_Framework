@@ -147,16 +147,16 @@ Python_Data_Engineering_Automation_Framework/
 
 ├── Data/
 │     ├── raw/
-│        ├── 20260625_231536_countries_raw.json
-│        ├── 20260628_173411_users_raw.json
-│        ├── 20260708_193807_users_raw.json
-│        ├── 20260709_115812_users_raw.json
-│        ├── country_raw.csv
-│        ├── customer_raw.csv
-│        ├── product_raw.csv
-│        └── sales_raw.csv
-│        
-│     ├── staging/                          #cleaned, pre_load files
+│     │  ├── 20260625_231536_countries_raw.json
+│     │  ├── 20260628_173411_users_raw.json
+│     │  ├── 20260708_193807_users_raw.json
+│     │  ├── 20260709_115812_users_raw.json
+│     │  ├── country_raw.csv
+│     │  ├── customer_raw.csv
+│     │  ├── product_raw.csv
+│     │  └── sales_raw.csv
+│     │   
+│     └── staging/                          #cleaned, pre_load files
 │        ├── country_staging.csv
 │        ├── country_staging.parquet
 │        ├── customer_staging.csv
@@ -165,20 +165,19 @@ Python_Data_Engineering_Automation_Framework/
 │        ├── product_staging.parquert
 │        ├── sales_staging.csv
 │        ├── sales_staging.parquet
-│        └──summary_report.csv
+│        └── summary_report.csv
 │  
-├── Docs/
-│    ├── staging/                          
-│        ├── Docker_build.png
-│        ├── Docker_build_details.png
-│        ├── Docker_dashboard.png
-│        ├── Docker_successful_execution.png
-│        ├── Docker-build_duration.png
-│        ├── pandas_transformation2.png
-│        ├── pandas_transformation3.png
-│        ├── pandas_transformation1.png
-│        ├── Snowflake_fact_sales_table.png
-│        └── Snowflake_staging_transformations.png
+├── Docs/                          
+│      ├── Docker_build.png
+│      ├── Docker_build_details.png
+│      ├── Docker_dashboard.png
+│      ├── Docker_successful_execution.png
+│      ├── Docker-build_duration.png
+│      ├── pandas_transformation2.png
+│      ├── pandas_transformation3.png
+│      ├── pandas_transformation1.png
+│      ├── Snowflake_fact_sales_table.png
+│      └── Snowflake_staging_transformations.png
 │        
 ├── sql/
 │     ├── staging/
@@ -243,6 +242,14 @@ Python_Data_Engineering_Automation_Framework/
 ### ❄️ Snowflake staging transformations
 
 ![Snowflake staging transformations](docs/Snowflake_staging_transformations.png)
+
+### 🐼 pandas transformation1
+
+![pandas transformation1](docs/pandas_transformation1.png)
+
+### 🐼 pandas transformation2
+
+![pandas transformation2](docs/pandas_transformation2.png)
 
 ### 🐼 pandas transformation3
 
